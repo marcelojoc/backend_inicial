@@ -11,18 +11,38 @@
     </p>
 
      <h1>Login de Usuario</h1>
-      
+
 
       <?php echo form_open('admin/checklogin'); ?>
-        <input type="text"     id="username" name="username" placeholder="Usuario" autofocus>
-        <input type="password" id="password" name="password" placeholder="Pass">
-        <p class="remember_me">
-          <label>
-            <input type="checkbox" name="remember_me" id="remember_me">
-            Remember me on this computer
-          </label>
-        </p>
-        <p class="submit"><input type="submit" name="commit" value="Login"></p>
-      <?php echo form_close(); ?>
+
+
+      <?php
+        $arrOpt = array(
+          'type'          => 'text',
+          'name'          => 'username',
+          'id'            => 'username',
+          'placeholder'   => 'johndoe',
+          'maxlength'     => '100',
+          'size'          => '20'
+         );
+        echo form_input( $arrOpt); ?>
+
+      <?php
+        $arrpass = array(
+          'type'          => 'password',
+          'name'          => 'password',
+          'id'            => 'password',
+          'placeholder'   => 'contraseña',
+          'maxlength'     => '100',
+          'size'          => '20'
+         );
+        echo form_input( $arrpass); ?>
+
+        <p class="submit"><input type="submit" name="login" value="Login"></p>
+
+
+        <?php echo form_close(); ?>
+
+        <?php echo validation_errors(); ?>
   </body>
 </html>
