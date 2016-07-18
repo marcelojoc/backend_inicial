@@ -5,10 +5,6 @@
     <title>Login del sitio_view </title>
   </head>
   <body>
-    <p>
-      Login del sitio....aqui va el formulario y eso...
-
-    </p>
 
      <h1>Login de Usuario</h1>
 

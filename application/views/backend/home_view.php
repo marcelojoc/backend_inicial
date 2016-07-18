@@ -7,7 +7,7 @@
   <body>
 
 
-     <h1>Acceso Permitido a: <?php echo $this->session->logged_in['nombre'] 
+     <h1>Acceso Permitido a: <?php echo $this->session->logged_in['nombre'] ." USUARIO: ".$this->session->logged_in['nick'] 
                              // los datos de sesion se acceden de esa manera
                              // $this->session->logged_in['el nombre del campo']
      ?> 

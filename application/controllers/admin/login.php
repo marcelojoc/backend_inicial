@@ -7,17 +7,25 @@ class Login extends CI_Controller {
 	
 		function __construct()
 		{
+
+			/* carga de libreria para validar formulario
+			setear reglas de validacion
+			comprobar la validacion del formulario
+			disparar el callback para checkear si existe el usuario (devuelve los datos del tipo o falso)
+			comprobar si vas validaciones son correctas
+
+			*/
+
 			parent::__construct();
 			$this->load->helper(array('url', 'form')); // cargo helpers de url y para crear formularios
 			$this->load->library('form_validation');
 			$this->load->model('usuario_model','',TRUE); // cargo el modelo de usuario para login
 		}
 
-
 		public function index()
 		{
 
-			
+			// comprueba si hay sesion configurada
 			if($this->session->userdata('logged_in')){
 
 				$this->load->view('backend/home'); // muestro la vista de form login
@@ -29,14 +37,6 @@ class Login extends CI_Controller {
 
 		}
 
-	
-			/* carga de libreria para validar formulario
-           setear reglas de validacion
-           comprobar la validacion del formulario
-           disparar el callback para checkear si existe el usuario (devuelve los datos del tipo o falso)
-           comprobar si vas validaciones son correctas
-
-        */
 
 		public function checklogin ()
 		{
@@ -74,8 +74,6 @@ class Login extends CI_Controller {
 	
 
 
-
-
 		function check_database($password)  // callback para la validacion
 		{
 				//traigo el valor del form por post
@@ -90,9 +88,10 @@ class Login extends CI_Controller {
 
 				$ci = & get_instance();
 
-				foreach($result as $row)
+
+				foreach($result as $row)  // Aqui se cargan los parametros del usuario dentro de la sesion
 				{
-				$sess_array = array(
+				$sess_array = array(             
 					'id_usuario' => $row->id_user,
 					'nombre' => $row->nombre,
 					'apellido' => $row->apellido,
