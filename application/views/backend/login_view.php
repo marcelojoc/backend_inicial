@@ -13,7 +13,7 @@
      <h1>Login de Usuario</h1>
 
 
-      <?php echo form_open('admin/checklogin'); ?>
+      <?php echo form_open('admin/login/checklogin'); ?>
 
 
       <?php

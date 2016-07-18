@@ -14,13 +14,12 @@ class Home extends CI_Controller {
   public function index()
   {
 
-    echo "este es el valor de sesion";
-//var_dump($this->session->userdata('logged_in'));
 
 
     if ($this->session->userdata('logged_in')!= NULL) {
       # code...
       echo " hay sesion";
+      $this->load->view('backend/home_view');
 
     } else {
       echo " no hay sesion";
@@ -31,10 +30,4 @@ class Home extends CI_Controller {
   }
 
 
-  public function cerrar (){
-
-    $this->session->unset_userdata('logged_in');
-      redirect('/admin/login/','refresh');
-
-  }
 }
